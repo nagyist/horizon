@@ -96,6 +96,12 @@ def login(request):
                (region, protocol, origin))
         return shortcuts.redirect(url)
 
+    # Store the next URL in session so we can use it after WebSSO
+    next_url = request.GET.get('next')
+    if next_url:
+        request.session['post_login_redirect'] = next_url
+        LOG.info("Remembering post_login_redirect in session: %s", next_url)
+
     # If the user enabled websso and selects default protocol
     # from the dropdown, We need to redirect user to the websso url
     if request.method == 'POST':
@@ -238,6 +244,17 @@ def websso(request):
     auth.login(request, request.user)
     if request.session.test_cookie_worked():
         request.session.delete_test_cookie()
+
+    redirect_to = request.session.pop('post_login_redirect', None)
+    LOG.info("Fetched post_login_redirect from session: %s", redirect_to)
+
+    if not redirect_to:
+        redirect_to = request.POST.get('RelayState')
+
+    if redirect_to and http.url_has_allowed_host_and_scheme(
+            redirect_to, allowed_hosts={request.get_host()}):
+        return django_http.HttpResponseRedirect(redirect_to)
+
     return django_http.HttpResponseRedirect(settings.LOGIN_REDIRECT_URL)
 
 
