@@ -395,6 +395,11 @@ OPENSTACK_KEYSTONE_BACKEND = {
 # will require the user to enter the Domain name in addition to the username
 # for login.
 OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = False
+# When multidomain support is enabled and user has any roles in a domain,
+# Horizon will mostly attempt to use domain scope for calls to Keystone.
+# This behavior does not work properly with some policy combinations,
+# and can be disabled here.
+OPENSTACK_KEYSTONE_PREFER_DOMAIN_TOKEN = True
 # Set this to True to enable panels that provide the ability for users to
 # manage Identity Providers (IdPs) and establish a set of rules to map
 # federation protocol attributes to Identity API attributes.
