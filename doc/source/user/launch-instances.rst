@@ -218,7 +218,9 @@ file.
 
 .. note::
 
-   The user name is ``ubuntu`` for the Ubuntu cloud images on TryStack.
+   The user name is ``ubuntu`` for the Ubuntu cloud image.
+   The user name is ``rocky`` for the Rocky Linux cloud image.
+   More details see `Get images <https://docs.openstack.org/image-guide/obtain-images.html>`_.
 
 #. Copy the IP address for your instance.
 
