@@ -63,15 +63,9 @@ STATIC_URL = None
 POLICY_FILES_PATH = os.path.join(_get_root_path(), "conf")
 
 # Map of local copy of service policy files.
-# Please insure that your identity policy file matches the one being used on
-# your keystone servers. There is an alternate policy file that may be used
-# in the Keystone v3 multi-domain case, policy.v3cloudsample.json.
-# This file is not included in the Horizon repository by default but can be
-# found at
-# http://git.openstack.org/cgit/openstack/keystone/tree/etc/ \
-# policy.v3cloudsample.json
 # Having matching policy files on the Horizon and Keystone servers is essential
-# for normal operation. This holds true for all services and their policy files.
+# for normal operation. This holds true for all services and their policy
+# files.
 POLICY_FILES = {
     'identity': 'keystone_policy.yaml',
     'compute': 'nova_policy.yaml',
