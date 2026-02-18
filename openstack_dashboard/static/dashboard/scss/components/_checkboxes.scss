@@ -19,7 +19,7 @@
 
       &:before {
         @include fa-icon();
-        content: $fa-var-square-o;
+        content: $fa-var-square;
         width: 1em;
         vertical-align: middle;
       }
@@ -32,7 +32,7 @@
 
     // The checkbox - Checked
     &:checked + label:before {
-      content: $fa-var-check-square-o;
+      content: $fa-var-square-check;
     }
   }
 }

@@ -9,7 +9,11 @@
 
 // Vendor Components
 @import "/horizon/lib/bootstrap_scss/scss/bootstrap";
-@import "/horizon/lib/font_awesome/scss/font-awesome.scss";
+@import "/horizon/lib/font_awesome/scss/fontawesome.scss";
+
+// Workaround to make it work with font-awesome 6.2 and 4.5
+$fa-var-square-check: "\f046";
+$fa-var-circle-check: "\f192";
 
 // Main Page Layout
 @import "layout";

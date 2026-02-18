@@ -19,7 +19,7 @@
 
       &:before {
         @include fa-icon();
-        content: $fa-var-circle-o;
+        content: $fa-var-circle;
       }
 
       & > span {
@@ -30,7 +30,7 @@
 
     // Radio Button - Checked
     &:checked + label:before {
-      content: $fa-var-dot-circle-o;
+      content: $fa-var-circle-check;
     }
   }
 }
