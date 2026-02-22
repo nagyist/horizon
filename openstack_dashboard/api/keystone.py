@@ -124,7 +124,7 @@ def _get_endpoint_url(request, endpoint_type, catalog=None):
     return url
 
 
-def keystoneclient(request, admin=False, force_scoped=False):
+def keystoneclient(request, admin=False, force_scoped=None):
     """Returns a client connected to the Keystone backend.
 
     Several forms of authentication are supported:
@@ -151,6 +151,8 @@ def keystoneclient(request, admin=False, force_scoped=False):
     token_id = user.token.id
 
     if settings.OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT:
+        if force_scoped is None:
+            force_scoped = not settings.OPENSTACK_KEYSTONE_PREFER_DOMAIN_TOKEN
         is_domain_context_specified = bool(
             request.session.get("domain_context"))
 

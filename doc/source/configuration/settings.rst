@@ -937,7 +937,7 @@ by operator. So ``REST_API_REQUIRED_SETTINGS`` is not set by default.
 Please refer ``local_settings.py.example`` and confirm your ``local_settings.py``.
 
 SELECTABLE_THEMES
----------------------
+-----------------
 
 .. versionadded:: 12.0.0(Pike)
 
@@ -1054,7 +1054,7 @@ This setting tells Horizon in which cookie key to store the currently
 set theme.  The cookie expiration is currently set to a year.
 
 USER_MENU_LINKS
------------------
+---------------
 
 .. versionadded:: 13.0.0(Queens)
 
@@ -1133,8 +1133,6 @@ For example, if you're accessing the Dashboard via
     Apache also requires changing your WSGIScriptAlias to reflect the desired
     path.  For example, you'd replace ``/`` with ``/dashboard`` for the
     alias.
-
-
 
 Service-specific Settings
 =========================
@@ -1320,7 +1318,6 @@ expired or when it is required to be changed on first use. Disabling it will
 force such users to either use the command line interface to change their
 password, or contact the system administrator.
 
-
 AUTHENTICATION_PLUGINS
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1349,7 +1346,6 @@ like this:
         'openstack_auth.plugin.token.TokenPlugin'
     ]
 
-
 AUTHENTICATION_URLS
 ~~~~~~~~~~~~~~~~~~~
 
@@ -1376,7 +1372,6 @@ the site header when logged in.
 
 You should also define `OPENSTACK_KEYSTONE_URL`_ to indicate which of
 the regions is the default one.
-
 
 DEFAULT_SERVICE_REGIONS
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -1574,6 +1569,20 @@ Default: ``False``
 
 Set this to True if running on multi-domain model. When this is enabled, it
 will require user to enter the Domain name in addition to username for login.
+
+OPENSTACK_KEYSTONE_PREFER_DOMAIN_TOKEN
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 2026.1(Gazpacho)
+
+Default: ``True``
+
+When ``OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT`` is enabled,
+for certain users (that are for example both project and domain admins),
+Horizon prefers using domain scoped token when dealing with Keystone resources.
+This however may not work properly with some specific combinations of custom
+policies in Keystone, so this option allows operators to opt out of such
+token scope swap.
 
 OPENSTACK_KEYSTONE_URL
 ~~~~~~~~~~~~~~~~~~~~~~
