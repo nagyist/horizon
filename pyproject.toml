@@ -1,3 +1,54 @@
 [build-system]
 requires = ["pbr>=6.0.0", "setuptools>=64.0.0"]
 build-backend = "pbr.build"
+
+[project]
+name = "horizon"
+description = "OpenStack Dashboard"
+authors = [
+    {name = "OpenStack", email = "openstack-discuss@lists.openstack.org"},
+]
+readme = {file = "README.rst", content-type = "text/x-rst"}
+license = {text = "Apache-2.0"}
+dynamic = ["version", "dependencies"]
+requires-python = ">=3.10"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: OpenStack",
+    "Framework :: Django",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP",
+]
+
+[project.entry-points."oslo.config.opts"]
+openstack_dashboard = "openstack_dashboard.utils.config:list_options"
+openstack_dashboard_integration_tests = "openstack_dashboard.test.integration_tests.config:list_opts"
+
+[project.entry-points."babel.extractors"]
+# We use a custom extractor to find translatable strings in AngularJS templates.
+# See http://babel.pocoo.org/docs/messages/#referencing-extraction-methods for
+# details on how this works.
+angular = "horizon.utils.babel_extract_angular:extract_angular"
+
+[project.urls]
+Homepage = "https://docs.openstack.org/horizon"
+Repository = "https://opendev.org/openstack/horizon/"
+
+[tool.setuptools]
+packages = [
+    "horizon",
+    "openstack_auth",
+    "openstack_dashboard",
+]
