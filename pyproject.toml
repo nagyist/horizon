@@ -52,3 +52,20 @@ packages = [
     "openstack_auth",
     "openstack_dashboard",
 ]
+
+[tool.coverage.html]
+directory = "reports"
+
+[tool.coverage.report]
+ignore_errors = true
+include = [
+    "horizon/*",
+    "openstack_dashboard/*",
+    "openstack_auth/*",
+]
+omit = [
+    "/usr*",
+    "setup.py",
+    "*egg*",
+    ".venv/*",
+]
