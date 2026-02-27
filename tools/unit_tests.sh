@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Usage: unit_tests.sh [--coverage] <root_dir> [<test-file>, ...]
 
 set -o xtrace

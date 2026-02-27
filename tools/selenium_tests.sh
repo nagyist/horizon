@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ROOT=$1
 
 report_args="--junitxml=$ROOT/test_reports/selenium_test_results.xml"
