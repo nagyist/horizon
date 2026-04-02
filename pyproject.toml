@@ -38,9 +38,10 @@ openstack_dashboard_integration_tests = "openstack_dashboard.test.integration_te
 
 [project.entry-points."babel.extractors"]
 # We use a custom extractor to find translatable strings in AngularJS templates.
-# See http://babel.pocoo.org/docs/messages/#referencing-extraction-methods for
-# details on how this works.
+# See https://babel.pocoo.org/en/latest/messages.html#referencing-extraction-methods
+# for details on how this works.
 angular = "horizon.utils.babel_extract_angular:extract_angular"
+django = "horizon.utils.babel_extract_django:extract_django"
 
 [project.urls]
 Homepage = "https://docs.openstack.org/horizon"
