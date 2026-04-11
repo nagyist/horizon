@@ -43,7 +43,7 @@ The file structure for your plugin type will be different depending on your
 needs. Your plugin can be categorized into two types:
 
 * Plugins that create new panels or dashboards
-* Plugins that modify existing workflows, actions, etc... (Angular only)
+* Plugins that modify existing workflows, actions, etc. (Angular only)
 
 We will cover the basics of working with panels for both Python and Angular.
 If you are interested in creating a new panel, follow the steps below.
@@ -98,6 +98,7 @@ Below is a skeleton of what your plugin should look like.::
   │                ├── django.po
   │                └── djangojs.po
   │
+  ├── pyproject.toml
   ├── setup.py
   ├── setup.cfg
   ├── LICENSE
@@ -119,7 +120,7 @@ The Enabled File
 ----------------
 
 The enabled folder contains the configuration file(s) that registers your
-plugin with Horizon. The file is prefixed with an alpha-numeric string that
+plugin with Horizon. The file is prefixed with an alphanumeric string that
 determines the load order of your plugin. For more information on what you can
 include in this file, see pluggable settings in :ref:`install-settings`.
 
@@ -253,7 +254,7 @@ At this point, you have a very basic plugin. Note that new templates are
 required to extend base.html. Including base.html is important for a number of
 reasons. It is the template that contains all of your static resources along
 with any functionality external to your panel (things like navigation, context
-selection, etc...). As of this moment, this is also true for Angular plugins.
+selection, etc.). As of this moment, this is also true for Angular plugins.
 
 MANIFEST.in
 -----------
@@ -280,30 +281,52 @@ setup.cfg
 
     [metadata]
     name = myplugin
-    summary = A panel plugin for OpenStack Dashboard
-    description_file =
-        README.rst
-    author = myname
-    author_email = myemail
-    home_page = __REPLACE_YOUR_PLGUIN_HOMEPAGE_URL__
-    classifier =
-        Environment :: OpenStack
-        Framework :: Django
-        Intended Audience :: Developers
-        Intended Audience :: System Administrators
-        License :: OSI Approved :: Apache Software License
-        Operating System :: POSIX :: Linux
-        Programming Language :: Python
-        Programming Language :: Python :: 3 :: Only
-        Programming Language :: Python :: 3
-        Programming Language :: Python :: 3.6
-        Programming Language :: Python :: 3.7
-        Programming Language :: Python :: 3.8
-        Programming Language :: Python :: 3.9
 
-    [files]
-    packages =
-        myplugin
+pyproject.toml
+--------------
+
+.. code-block:: toml
+
+    [build-system]
+    requires = ["pbr>=6.0.0"]
+    build-backend = "pbr.build"
+
+    [project]
+    name = "myplugin"
+    description = "A panel plugin for OpenStack Dashboard"
+    authors = [
+        {name = "OpenStack", email = "openstack-discuss@lists.openstack.org"},
+    ]
+    readme = {file = "README.rst", content-type = "text/x-rst"}
+    license = {text = "Apache-2.0"}
+    dynamic = ["version", "dependencies"]
+    requires-python = ">=3.10"
+    classifiers = [
+        "Environment :: OpenStack",
+        "Framework :: Django",
+        "Intended Audience :: Developers" ,
+        "Intended Audience :: Information Technology",
+        "Intended Audience :: System Administrators",
+        "License :: OSI Approved :: Apache Software License",
+        "Operating System :: POSIX :: Linux",,
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3 :: Only",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: 3.13",
+        "Topic :: Internet :: WWW/HTTP",
+    ]
+
+    [project.urls]
+    Homepage = "__REPLACE_YOUR_PLGUIN_HOMEPAGE_URL__"
+    Repository = "__REPLACE_YOUR_PLGUIN_REPOSITORY_URL__"
+
+    [tool.setuptools]
+    packages = [
+        "myplugin",
+    ]
 
 AngularJS Plugin
 ================
@@ -446,8 +469,8 @@ This comes from the combination of the following two reasons.
 * OpenStack infra scripts assumes translation message catalogs are placed
   under ``<modulename>/locale`` (for example ``myplugin/locale``).
 
-.. [#] https://docs.openstack.org/infra/manual/creators.html#enabling-translation-infrastructure
-.. [#] https://docs.djangoproject.com/es/1.9/topics/i18n/translation/#how-django-discovers-translations
+.. [#] https://docs.openstack.org/i18n/latest/project_setup.html
+.. [#] https://docs.djangoproject.com/en/4.2/topics/i18n/translation/#how-django-discovers-translations
 
 myplugin/locale
 ---------------
