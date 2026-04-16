@@ -1782,7 +1782,8 @@ class InstanceTests(InstanceTestBase):
 
     @helpers.create_mocks({api.nova: ('server_get',
                                       'snapshot_create'),
-                           api.glance: ('image_list_detailed',)})
+                           api.glance: ('image_list_detailed',),
+                           api.keystone: ('tenant_list',)})
     def test_create_instance_snapshot(self):
         server = self.servers.first()
 
@@ -1790,6 +1791,7 @@ class InstanceTests(InstanceTestBase):
         self.mock_snapshot_create.return_value = self.snapshots.first()
         self.mock_image_list_detailed.return_value = \
             (self.images.list(), False, False)
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
 
         formData = {'instance_id': server.id,
                     'method': 'CreateSnapshot',

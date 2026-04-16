@@ -17,6 +17,7 @@ import json
 
 from django.conf import settings
 from django.template import defaultfilters as filters
+from django.template.loader import render_to_string
 from django.urls import reverse
 from django.utils.http import urlencode
 from django.utils.translation import gettext_lazy as _
@@ -28,6 +29,24 @@ from horizon import tables
 from openstack_dashboard import api
 
 NOT_LAUNCHABLE_FORMATS = ['aki', 'ari']
+
+
+def get_chevron_id(table, datum):
+    """Generate a unique chevron ID for expandable image rows.
+
+    This function ensures consistent ID generation between the chevron toggle
+    column and the expandable detail row. The ID is based on the table name
+    and the unique object identifier for the datum.
+
+    Args:
+        table: The DataTable instance (provides table.name and get_object_id())
+        datum: The image object (passed to get_object_id())
+
+    Returns:
+        str: Unique chevron ID "{table_name}_chevron_{object_id}"
+    """
+    object_id = table.get_object_id(datum)
+    return "%s_chevron_%s" % (table.name, object_id)
 
 
 class LaunchImage(tables.LinkAction):
@@ -266,7 +285,32 @@ def get_format(image):
     return format.upper()
 
 
-class UpdateRow(tables.Row):
+class ExpandableImageColumn(tables.Column):
+    """Column that renders a chevron toggle for expandable rows."""
+
+    def get_data(self, datum):
+        chevron_id = get_chevron_id(self.table, datum)
+        return render_to_string(
+            "images/images/_chevron_column.html",
+            {"chevron_id": chevron_id}
+        )
+
+
+class ExpandableImageRow(tables.Row):
+    """Custom row class for expandable image rows."""
+
+    def render(self):
+        chevron_id = get_chevron_id(self.table, self.datum)
+        my_tenant_id = self.table.request.user.tenant_id
+        categories = get_image_categories(self.datum, my_tenant_id)
+        category_classes = ' '.join('category-' + c for c in categories)
+        return render_to_string("images/images/expandable_row.html",
+                                {"row": self,
+                                 "chevron_id": chevron_id,
+                                 "category_classes": category_classes})
+
+
+class UpdateRow(ExpandableImageRow):
     ajax = True
 
     def get_data(self, request, image_id):
@@ -283,7 +327,24 @@ class UpdateRow(tables.Row):
             self.classes.append('category-' + category)
 
 
+VISIBILITY_DISPLAY_CHOICES = (
+    ("public", pgettext_lazy("Visibility of an Image", "Public")),
+    ("private", pgettext_lazy("Visibility of an Image", "Private")),
+    ("shared", pgettext_lazy("Visibility of an Image", "Shared")),
+    ("community", pgettext_lazy("Visibility of an Image", "Community")),
+)
+
+
 class ImagesTable(tables.DataTable):
+    chevron = ExpandableImageColumn("chevron",
+                                    verbose_name="",
+                                    sortable=False,
+                                    classes=['chevron_column'])
+
+    owner = tables.Column(
+        lambda obj: getattr(obj, 'tenant_name', None) or obj.owner,
+        verbose_name=_("Owner"))
+
     STATUS_CHOICES = (
         ("active", True),
         ("saving", None),
@@ -310,7 +371,7 @@ class ImagesTable(tables.DataTable):
     )
     name = tables.WrappingColumn(get_image_name,
                                  link="horizon:project:images:images:detail",
-                                 verbose_name=_("Image Name"),)
+                                 verbose_name=_("Name"),)
     image_type = tables.Column(get_image_type,
                                verbose_name=_("Type"),
                                display_choices=TYPE_CHOICES)
@@ -323,11 +384,14 @@ class ImagesTable(tables.DataTable):
                            verbose_name=_("Public"),
                            empty_value=False,
                            filters=(filters.yesno, filters.capfirst))
+    visibility = tables.Column("visibility",
+                               verbose_name=_("Visibility"),
+                               display_choices=VISIBILITY_DISPLAY_CHOICES)
     protected = tables.Column("protected",
                               verbose_name=_("Protected"),
                               empty_value=False,
                               filters=(filters.yesno, filters.capfirst))
-    disk_format = tables.Column(get_format, verbose_name=_("Format"))
+    disk_format = tables.Column(get_format, verbose_name=_("Disk Format"))
     size = tables.Column("size",
                          filters=(filters.filesizeformat,),
                          attrs=({"data-type": "size"}),
@@ -338,6 +402,10 @@ class ImagesTable(tables.DataTable):
         row_class = UpdateRow
         status_columns = ["status"]
         verbose_name = _("Images")
+        columns = ("chevron", "owner", "name", "image_type",
+                   "status", "visibility", "protected",
+                   "disk_format", "size")
+        template = "images/images/_images_table.html"
         table_actions = (OwnerFilter, CreateImage, DeleteImage,)
         launch_actions = (LaunchImageNG,)
         row_actions = launch_actions + (CreateVolumeFromImage,

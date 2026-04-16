@@ -41,6 +41,10 @@ class BaseImagesTestCase(test.TestCase):
         super().setUp()
         self.patcher = mock.patch.object(api.glance, 'image_list_detailed')
         self.mock_image_list = self.patcher.start()
+        self.tenant_patcher = mock.patch.object(
+            api.keystone, 'tenant_list')
+        self.mock_tenant_list = self.tenant_patcher.start()
+        self.mock_tenant_list.return_value = [self.tenants.list(), False]
 
 
 class ImagesAndSnapshotsTests(BaseImagesTestCase):

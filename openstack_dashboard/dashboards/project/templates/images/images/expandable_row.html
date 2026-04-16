@@ -1,0 +1,111 @@
+{% load i18n %}
+
+{% include "horizon/common/_data_table_row.html" %}
+
+<tr class="image-detail-row {{ category_classes }}">
+  <td colspan="{{ row.cells|length }}">
+    <div id="{{ chevron_id }}" class="collapse">
+      <div class="image-details">
+        <div class="row">
+          <div class="col-sm-6">
+            <span class="image-prop-label">{% trans "Name" %}</span>
+            <span class="image-prop-value">{{ row.datum.name|default:"--" }}</span>
+          </div>
+          <div class="col-sm-6">
+            <span class="image-prop-label">{% trans "ID" %}</span>
+            <span class="image-prop-value">{{ row.datum.id }}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <span class="image-prop-label">{% trans "Visibility" %}</span>
+            <span class="image-prop-value">{{ row.datum.visibility|default:"--"|capfirst }}</span>
+          </div>
+          <div class="col-sm-6">
+            <span class="image-prop-label">{% trans "Protected" %}</span>
+            <span class="image-prop-value">{{ row.datum.protected|yesno:"Yes,No" }}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <span class="image-prop-label">{% trans "Container Format" %}</span>
+            <span class="image-prop-value">{{ row.datum.container_format|default:"--" }}</span>
+          </div>
+          <div class="col-sm-6">
+            <span class="image-prop-label">{% trans "Disk Format" %}</span>
+            <span class="image-prop-value">{{ row.datum.disk_format|default:"--" }}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <span class="image-prop-label">{% trans "Size" %}</span>
+            <span class="image-prop-value">{{ row.datum.size|filesizeformat }}</span>
+          </div>
+          <div class="col-sm-6">
+            <span class="image-prop-label">{% trans "Architecture" %}</span>
+            <span class="image-prop-value">{{ row.datum.properties.architecture|default:"--" }}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <span class="image-prop-label">{% trans "Min Disk (GB)" %}</span>
+            <span class="image-prop-value">{{ row.datum.min_disk|default:"0" }}</span>
+          </div>
+          <div class="col-sm-6">
+            <span class="image-prop-label">{% trans "Min RAM (MB)" %}</span>
+            <span class="image-prop-value">{{ row.datum.min_ram|default:"0" }}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <span class="image-prop-label">{% trans "Kernel ID" %}</span>
+            <span class="image-prop-value">{{ row.datum.properties.kernel_id|default:"--" }}</span>
+          </div>
+          <div class="col-sm-6">
+            <span class="image-prop-label">{% trans "Ramdisk ID" %}</span>
+            <span class="image-prop-value">{{ row.datum.properties.ramdisk_id|default:"--" }}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <span class="image-prop-label">{% trans "Checksum" %}</span>
+            <span class="image-prop-value"><code>{{ row.datum.checksum|default:"--" }}</code></span>
+          </div>
+        </div>
+        {% if row.datum.properties.os_hash_algo or row.datum.properties.os_hash_value %}
+        <div class="row">
+          {% if row.datum.properties.os_hash_algo %}
+          <div class="col-sm-6">
+            <span class="image-prop-label">{% trans "os_hash_algo" %}</span>
+            <span class="image-prop-value">{{ row.datum.properties.os_hash_algo }}</span>
+          </div>
+          {% endif %}
+          {% if row.datum.properties.os_hash_value %}
+          <div class="col-sm-6">
+            <span class="image-prop-label">{% trans "os_hash_value" %}</span>
+            <span class="image-prop-value"><code>{{ row.datum.properties.os_hash_value }}</code></span>
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
+        <div class="row">
+          <div class="col-sm-12">
+            <span class="image-prop-label">{% trans "Description" %}</span>
+            <span class="image-prop-value">{{ row.datum.description|default:"--" }}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <span class="image-prop-label">{% trans "Created" %}</span>
+            <span class="image-prop-value">{{ row.datum.created_at|default:"--" }}</span>
+          </div>
+          <div class="col-sm-6">
+            <span class="image-prop-label">{% trans "Updated" %}</span>
+            <span class="image-prop-value">{{ row.datum.updated_at|default:"--" }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </td>
+</tr>
+<tr></tr>

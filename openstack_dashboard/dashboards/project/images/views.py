@@ -81,4 +81,12 @@ class IndexView(tables.DataTableView):
             images = []
             self._prev = self._more = False
             exceptions.handle(self.request, _("Unable to retrieve images."))
+        if images:
+            try:
+                tenants, more = api.keystone.tenant_list(self.request)
+                tenant_dict = dict((t.id, t.name) for t in tenants)
+                for image in images:
+                    image.tenant_name = tenant_dict.get(image.owner)
+            except Exception:
+                LOG.warning('Unable to retrieve project names for images.')
         return images
