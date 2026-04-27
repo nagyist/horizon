@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-08-11 19:58+0000\n"
+"POT-Creation-Date: 2026-04-23 15:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,12 +13,6 @@ msgstr ""
 "Language: ta\n"
 "X-Generator: Zanata 4.3.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-
-msgid " - End"
-msgstr " - முடிவு"
-
-msgid " : Next hop"
-msgstr ": அடுத்த ஹாப்"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -167,13 +161,6 @@ msgstr "இந்த திரளில் புரவலர்களை சே
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "திரளில் புரவலர்களை சேர்/நீக்கு"
-
-msgid ""
-"Additional routes announced to the hosts. Each entry is: destination_cidr,"
-"nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
-msgstr ""
-"புரவலர்களிடம் அறிவித்த கூடுதல் திசைகள் ஒவ்வொரு உள்ளீடும்: destination_cidr,nexthop "
-"(எ.கா, 192.168.200.0/24,10.56.1.254) மற்றும்  ஒவ்வொரு வரியிலும் ஒரு உள்ளீடு."
 
 msgid "Admin"
 msgstr "நிர்வாகம்"
@@ -987,6 +974,9 @@ msgstr "QoS விவரக்குறிப்பு நுகர்வோ�
 msgid "Edit Router"
 msgstr "திசைவியை திருத்து"
 
+msgid "Edit Rule"
+msgstr "விதியை திருத்து"
+
 msgid "Edit Security Group"
 msgstr "பாதுகாப்பு குழுவை திருத்து"
 
@@ -1387,14 +1377,6 @@ msgstr "புரவலர் திரட்டல்கள்"
 
 msgid "Host Routes"
 msgstr "புரவலன் திசைகள்"
-
-#, python-format
-msgid ""
-"Host Routes format error: Destination CIDR and nexthop must be specified "
-"(value=%s)"
-msgstr ""
-"புரவலன் திசைகள் வடிவ பிழை: இலக்கு CIDR மற்றும் nexthop குறிப்பிடப்பட வேண்டும் "
-"(மதிப்பு=%s)"
 
 msgid ""
 "Host aggregates divide an availability zone into logical units by grouping "

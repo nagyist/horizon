@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-12-18 20:55+0000\n"
+"POT-Creation-Date: 2026-04-23 15:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -86,12 +86,6 @@ msgstr ""
 "  You must have one of these services activated in order to create a "
 "backup.\n"
 "  "
-
-msgid " - End"
-msgstr " - End"
-
-msgid " : Next hop"
-msgstr " : Next hop"
 
 msgid ""
 " A protocol entry contains information that dictates which mapping rules to "
@@ -553,13 +547,6 @@ msgstr[1] "Added Users"
 
 msgid "Additional Routes"
 msgstr "Additional Routes"
-
-msgid ""
-"Additional routes announced to the hosts. Each entry is: destination_cidr,"
-"nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
-msgstr ""
-"Additional routes announced to the hosts. Each entry is: destination_cidr,"
-"nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
 
 msgid ""
 "Additionally, some resource types may require a prefix to be used when "
@@ -2506,6 +2493,9 @@ msgstr "Edit Quotas"
 msgid "Edit Router"
 msgstr "Edit Router"
 
+msgid "Edit Rule"
+msgstr "Edit Rule"
+
 msgid "Edit Security Group"
 msgstr "Edit Security Group"
 
@@ -3478,14 +3468,6 @@ msgstr "Host Name ="
 
 msgid "Host Routes"
 msgstr "Host Routes"
-
-#, python-format
-msgid ""
-"Host Routes format error: Destination CIDR and nexthop must be specified "
-"(value=%s)"
-msgstr ""
-"Host Routes format error: Destination CIDR and nexthop must be specified "
-"(value=%s)"
 
 msgid ""
 "Host aggregates divide an availability zone into logical units by grouping "
@@ -5341,10 +5323,6 @@ msgstr "Rebuilding"
 msgid "Rebuilding instance %s."
 msgstr "Rebuilding instance %s."
 
-#, python-format
-msgid "Regenerate and download Key Pair &quot;%(keypair_name)s&quot;"
-msgstr "Regenerate and download Key Pair &quot;%(keypair_name)s&quot;"
-
 msgid "Region"
 msgstr "Region"
 
@@ -6740,14 +6718,6 @@ msgstr "The instance(s) will be shut off."
 
 msgid "The key must match the following the regex: '^[a-zA-Z0-9-_:. /]'"
 msgstr "The key must match the following the regex: '^[a-zA-Z0-9-_:. /]'"
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not, use the button below."
-msgstr ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not, use the button below."
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "

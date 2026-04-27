@@ -33,7 +33,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-09-17 19:09+0000\n"
+"POT-Creation-Date: 2026-04-23 15:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -86,12 +86,6 @@ msgstr ""
 "  (对象存储服务, Ceph, NFS, 等……)存储。\n"
 "  为了创建备份您需要启用上述的某个服务。\n"
 "  "
-
-msgid " - End"
-msgstr " - 结束"
-
-msgid " : Next hop"
-msgstr "：下一跳"
 
 msgid ""
 " A protocol entry contains information that dictates which mapping rules to "
@@ -438,13 +432,6 @@ msgstr[0] "已添加的用户"
 
 msgid "Additional Routes"
 msgstr "额外路由"
-
-msgid ""
-"Additional routes announced to the hosts. Each entry is: destination_cidr,"
-"nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
-msgstr ""
-"主机增加额外的路由. 记录格式是：目的CIDR, 下一跳(例如"
-"192.168.200.0/24,10.56.1.254) ，每行一条记录。"
 
 msgid ""
 "Additionally, some resource types may require a prefix to be used when "
@@ -2152,6 +2139,9 @@ msgstr "编辑配额"
 msgid "Edit Router"
 msgstr "编辑路由"
 
+msgid "Edit Rule"
+msgstr "编辑规则"
+
 msgid "Edit Security Group"
 msgstr "编辑安全组"
 
@@ -2971,12 +2961,6 @@ msgstr "主机名 ="
 
 msgid "Host Routes"
 msgstr "主机路由"
-
-#, python-format
-msgid ""
-"Host Routes format error: Destination CIDR and nexthop must be specified "
-"(value=%s)"
-msgstr "主机路由错误: 必须指定目的CIDR 和下一跳。(值为 %s)"
 
 msgid ""
 "Host aggregates divide an availability zone into logical units by grouping "
@@ -4652,10 +4636,6 @@ msgstr "正在重建"
 msgid "Rebuilding instance %s."
 msgstr "重建实例  %s。"
 
-#, python-format
-msgid "Regenerate and download Key Pair &quot;%(keypair_name)s&quot;"
-msgstr "重新生成并下载密钥对 &quot;%(keypair_name)s&quot;"
-
 msgid "Region"
 msgstr "域"
 
@@ -5911,14 +5891,6 @@ msgstr "实例将会被关闭"
 
 msgid "The key must match the following the regex: '^[a-zA-Z0-9-_:. /]'"
 msgstr "键需要与以下正则表达式相匹配： '^[a-zA-Z0-9-_:. /]'"
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not, use the button below."
-msgstr ""
-"密钥对&quot;%(keypair_name)s&quot;应该会自动下载，如果没有自动下载，使用下面"
-"的按钮进行手动下载。"
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "

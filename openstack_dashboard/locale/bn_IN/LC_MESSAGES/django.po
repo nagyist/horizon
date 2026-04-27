@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-08-11 19:58+0000\n"
+"POT-Creation-Date: 2026-04-23 15:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,12 +13,6 @@ msgstr ""
 "Language: bn_IN\n"
 "X-Generator: Zanata 4.3.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-
-msgid " - End"
-msgstr " - শেষ"
-
-msgid " : Next hop"
-msgstr " : পরের হপ"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -161,13 +155,6 @@ msgstr "এই সমুহে হোস্ট যোগ করুন. হোস
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "সমুহতে হোস্ট যোগ করুন/সরিয়ে ফেলুন"
-
-msgid ""
-"Additional routes announced to the hosts. Each entry is: destination_cidr,"
-"nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
-msgstr ""
-"হোস্টে ঘোষণার অতিরিক্ত রুট. প্রতিটি ভুক্তি হল: destination_cidr,nexthop (যেমন "
-"192.168.200.0/24,10.56.1.254) এবং লাইন প্রতি একটি ভুক্তি."
 
 msgid "Admin"
 msgstr "অ্যাডমিন"
@@ -939,6 +926,9 @@ msgstr "QoS স্পেক ক্রেতা সম্পাদনা কর�
 msgid "Edit Router"
 msgstr "রাউটার সম্পাদনা করুন"
 
+msgid "Edit Rule"
+msgstr "নিয়ম সম্পাদনা করুন"
+
 msgid "Edit Security Group"
 msgstr "সুরক্ষা শ্রেণি সম্পাদনা করুন"
 
@@ -1318,12 +1308,6 @@ msgstr "হোস্ট সমূহ"
 
 msgid "Host Routes"
 msgstr "হোস্ট রুট"
-
-#, python-format
-msgid ""
-"Host Routes format error: Destination CIDR and nexthop must be specified "
-"(value=%s)"
-msgstr "হোস্ট রুট ফরম্যাট ভুল: গন্তব্য CIDR এবং পরের হপ নির্দিষ্ট হওয়া চাই (মান=%s)"
 
 msgid ""
 "Host aggregates divide an availability zone into logical units by grouping "

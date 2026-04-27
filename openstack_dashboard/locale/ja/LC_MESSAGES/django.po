@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: horizon VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-09-17 19:09+0000\n"
+"POT-Creation-Date: 2026-04-23 15:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -75,12 +75,6 @@ msgstr ""
 "バックアップを作成するには、これらのサービスの 1 つを有効にしなければいけませ"
 "ん。\n"
 "  "
-
-msgid " - End"
-msgstr " - 末尾"
-
-msgid " : Next hop"
-msgstr " : ネクストホップ"
 
 msgid ""
 " A protocol entry contains information that dictates which mapping rules to "
@@ -531,13 +525,6 @@ msgstr[0] "ユーザーを追加しました"
 
 msgid "Additional Routes"
 msgstr "追加のルート設定"
-
-msgid ""
-"Additional routes announced to the hosts. Each entry is: destination_cidr,"
-"nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
-msgstr ""
-"ホストに通知される追加のルート。各項目は destination_cidr,nexthop (例: "
-"192.168.200.0/24,10.56.1.254) 形式で 1 行に 1 項目記入します。"
 
 msgid ""
 "Additionally, some resource types may require a prefix to be used when "
@@ -2366,6 +2353,9 @@ msgstr "クォータの編集"
 msgid "Edit Router"
 msgstr "ルーターの編集"
 
+msgid "Edit Rule"
+msgstr "ルールの編集"
+
 msgid "Edit Security Group"
 msgstr "セキュリティーグループの編集"
 
@@ -3297,14 +3287,6 @@ msgstr "ホスト名 ="
 
 msgid "Host Routes"
 msgstr "追加のルート設定"
-
-#, python-format
-msgid ""
-"Host Routes format error: Destination CIDR and nexthop must be specified "
-"(value=%s)"
-msgstr ""
-"ホストルートの形式エラー: 宛先 CIDR およびネクストホップを指定する必要があり"
-"ます (値=%s)"
 
 msgid ""
 "Host aggregates divide an availability zone into logical units by grouping "
@@ -5078,10 +5060,6 @@ msgstr "再作成中"
 msgid "Rebuilding instance %s."
 msgstr "インスタンス %s を再作成中。"
 
-#, python-format
-msgid "Regenerate and download Key Pair &quot;%(keypair_name)s&quot;"
-msgstr "キーペア &quot;%(keypair_name)s&quot; の再作成とダウンロード"
-
 msgid "Region"
 msgstr "リージョン"
 
@@ -6415,14 +6393,6 @@ msgstr "インスタンスが停止されます。"
 
 msgid "The key must match the following the regex: '^[a-zA-Z0-9-_:. /]'"
 msgstr "キーは次の正規表現と一致している必要があります: '^[a-zA-Z0-9-_:. /]'"
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not, use the button below."
-msgstr ""
-"キーペア &quot;%(keypair_name)s&quot; が自動的にダウンロードされます。開始し"
-"ない場合には、以下のボタンを使用してください。"
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "

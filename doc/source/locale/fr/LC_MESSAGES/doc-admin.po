@@ -3,9 +3,9 @@
 # Corinne Verheyde <cverheyd@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 25.6.0.dev54\n"
+"Project-Id-Version: horizon 25.8.0.dev45\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-27 19:15+0000\n"
+"POT-Creation-Date: 2026-04-23 15:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -985,13 +985,6 @@ msgstr ""
 "`admin` dans la liste déroulante."
 
 msgid ""
-"Log in to the dashboard and select the :guilabel:`Identity` project from the "
-"drop-down list."
-msgstr ""
-"Connectez-vous au tableau de bord et sélectionnez le projet :guilabel:"
-"`Identité` dans la liste déroulante."
-
-msgid ""
 "Log in to the dashboard and select the :guilabel:`admin` project from the "
 "drop-down list."
 msgstr ""
@@ -1110,11 +1103,6 @@ msgstr ""
 
 msgid "On the :guilabel:`Admin` tab, open the :guilabel:`Volume` tab."
 msgstr "Dans l'onglet :guilabel:`Admin`, ouvrir l'onglet :guilabel:`Volume`."
-
-msgid "On the :guilabel:`Identity` tab, click the :guilabel:`Roles` category."
-msgstr ""
-"Dans l'onglet :guilabel:`Identité`, cliquez sur la catégorie :guilabel:"
-"`Rôles`."
 
 msgid ""
 "On the compute nodes, ensure the ``nonvncproxy_base_url`` option points to a "
